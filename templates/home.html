@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>QR Code generator</title>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script>
+</head>
+
+<body>
+    <h1>Hello! </h1>
+    <p>Enter the URL you wish to encode here:</p>
+    
+    <p><input id="source"></input>
+    <button onclick="generateQR()">Generate</button></p>
+
+    <div id="build_area">
+    </div>
+    
+</body>
+
+<script type="text/javascript">
+
+function generateQR() {
+    var toGenerate = document.getElementById('source').value;
+    console.log('<img src="{{ qrcode('+ toGenerate + ')}}">')
+    document.getElementById('build_area').innerHTML = '<img src="{{ qrcode("https://qr.tjth.co", border=5)}}">';
+}
+
+</script>
+
+</html>
